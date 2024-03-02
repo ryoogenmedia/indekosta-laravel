@@ -1,11 +1,11 @@
-<aside class="navbar navbar-vertical navbar-expand-lg" data-bs-theme="dark">
+<aside class="navbar navbar-vertical navbar-expand-lg " data-bs-theme="dark">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar-menu"
             aria-controls="sidebar-menu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <h1 class="navbar-brand navbar-brand-autodark">
-            <a href=".">
+        <h1 class="navbar-brand navbar-brand-autodark p-0">
+            <a href="p-0">
                 <img src="{{ asset('static/logo_indekost.svg') }}" width="100%" height="100%" alt="Tabler">
             </a>
         </h1>
