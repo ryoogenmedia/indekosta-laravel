@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('kost', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->nullable();
 
             $table->string('nama_kost')->nullable();
             $table->string('image')->nullable();
             $table->text('alamat')->nullable();
-            $table->text('deksripsi')->nullable();
+            $table->text('deskripsi')->nullable();
             $table->string('harga')->nullable();
             $table->text('latitude')->nullable();
             $table->text('longitude')->nullable();

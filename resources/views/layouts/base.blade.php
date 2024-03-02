@@ -35,7 +35,7 @@
     @livewireStyles
 
     <!-- Component Style -->
-    @stack('styles')
+    @yield('styles')
 </head>
 
 <body class="@yield('body-class')">

@@ -12,7 +12,13 @@ class Category extends Model
     protected $table = 'category';
 
     protected $fillable = [
+        'kost_id',
         'category',
         'persent',
     ];
+
+    public function indekosta()
+    {
+        return $this->belongsTo(Kost::class, 'kost_id', 'id')->withDefault();
+    }
 }

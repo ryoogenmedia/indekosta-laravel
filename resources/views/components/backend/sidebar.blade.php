@@ -4,8 +4,8 @@
             aria-controls="sidebar-menu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <h1 class="navbar-brand navbar-brand-autodark p-0">
-            <a href="p-0">
+        <h1 class="navbar-brand navbar-brand-autodark p-3">
+            <a href="{{ route('home') }}">
                 <img src="{{ asset('static/logo_indekost.svg') }}" width="100%" height="100%" alt="Tabler">
             </a>
         </h1>
