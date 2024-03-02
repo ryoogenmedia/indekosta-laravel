@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->text('alamat')->nullable();
             $table->text('deksripsi')->nullable();
-            $table->text('harga')->nullable();
+            $table->string('harga')->nullable();
             $table->text('latitude')->nullable();
             $table->text('longitude')->nullable();
 
