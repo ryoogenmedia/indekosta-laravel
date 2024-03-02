@@ -1,3 +1,7 @@
 <div>
-    {{-- Care about people's approval and you will be their prisoner. --}}
+    <x-slot name="title">Pengguna</x-slot>
+
+    <x-slot name="pageTitle">Pengguna</x-slot>
+
+    <x-slot name="pagePretitle">Daftar Pengguna</x-slot>
 </div>

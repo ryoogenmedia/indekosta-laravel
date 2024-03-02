@@ -11,6 +11,33 @@ return [
     ],
 
     [
+        'title' => 'Indekosta',
+        'icon' => 'city',
+        'route-name' => 'indekosta',
+        'is-active' => 'indekosta',
+        'description' => 'Untuk melihat daftar kost.',
+        'roles' => ['admin'],
+    ],
+
+    [
+        'title' => 'Rekomendasi',
+        'icon' => 'chart-bar',
+        'route-name' => 'recomendation',
+        'is-active' => 'recomendation',
+        'description' => 'Untuk melihat daftar rekomendasi.',
+        'roles' => ['admin'],
+    ],
+
+    [
+        'title' => 'Pengguna',
+        'icon' => 'user',
+        'route-name' => 'user',
+        'is-active' => 'user',
+        'description' => 'Untuk melihat daftar pengguna.',
+        'roles' => ['admin'],
+    ],
+
+    [
         'title' => 'Pengaturan',
         'description' => 'Menampilkan pengaturan aplikasi.',
         'icon' => 'cog',

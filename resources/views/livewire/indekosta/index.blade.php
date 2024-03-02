@@ -1,3 +1,7 @@
 <div>
-    {{-- Because she competes with no one, no one can compete with her. --}}
+    <x-slot name="title">Indekota</x-slot>
+
+    <x-slot name="pageTitle">Indekota</x-slot>
+
+    <x-slot name="pagePretitle">Daftar Kost Anda</x-slot>
 </div>

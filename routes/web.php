@@ -20,12 +20,30 @@ Route::middleware('auth', 'verified', 'force.logout')->namespace('App\Livewire')
      * beranda / home
      */
     Route::get('beranda', Home\Index::class)->name('home')
-        ->middleware('roles:admin,teacher,student');
+        ->middleware('roles:admin,user');
+
+    /**
+     * kosta
+     */
+    Route::get('indekosta', Indekosta\Index::class)->name('indekosta')
+        ->middleware('roles:admin');
+
+    /**
+     * recomendation / rekomendasi
+     */
+    Route::get('rekomendasi', Recomendation\Index::class)->name('recomendation')
+        ->middleware('roles:admin');
+
+    /**
+     * pengguna / user
+     */
+    Route::get('pengguna', User\Index::class)->name('user')
+        ->middleware('roles:admin');
 
     /**
      * setting
      */
-    Route::prefix('pengaturan')->name('setting.')->middleware('roles:admin,teacher,student')->namespace('Setting')->group(function () {
+    Route::prefix('pengaturan')->name('setting.')->middleware('roles:admin,user')->namespace('Setting')->group(function () {
         Route::redirect('/', 'pengaturan/aplikasi');
 
         /**
