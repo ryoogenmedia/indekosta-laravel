@@ -13,8 +13,8 @@ return [
     [
         'title' => 'Indekosta',
         'icon' => 'city',
-        'route-name' => 'indekosta',
-        'is-active' => 'indekosta',
+        'route-name' => 'indekosta.index',
+        'is-active' => 'indekosta*',
         'description' => 'Untuk melihat daftar kost.',
         'roles' => ['admin'],
     ],
@@ -22,8 +22,8 @@ return [
     [
         'title' => 'Rekomendasi',
         'icon' => 'chart-bar',
-        'route-name' => 'recomendation',
-        'is-active' => 'recomendation',
+        'route-name' => 'recomendation.index',
+        'is-active' => 'recomendation*',
         'description' => 'Untuk melihat daftar rekomendasi.',
         'roles' => ['admin'],
     ],
@@ -31,8 +31,8 @@ return [
     [
         'title' => 'Pengguna',
         'icon' => 'user',
-        'route-name' => 'user',
-        'is-active' => 'user',
+        'route-name' => 'user.index',
+        'is-active' => 'user*',
         'description' => 'Untuk melihat daftar pengguna.',
         'roles' => ['admin'],
     ],

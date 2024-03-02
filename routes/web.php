@@ -25,20 +25,29 @@ Route::middleware('auth', 'verified', 'force.logout')->namespace('App\Livewire')
     /**
      * kosta
      */
-    Route::get('indekosta', Indekosta\Index::class)->name('indekosta')
-        ->middleware('roles:admin');
+    Route::namespace('Indekosta')->middleware('roles:admin')->prefix('indekosta')->name('indekosta.')->group(function () {
+        Route::get('/', Index::class)->name('index');
+        Route::get('/tambah', Create::class)->name('create');
+        Route::get('/{id}/sunting', Edit::class)->name('edit');
+    });
 
     /**
      * recomendation / rekomendasi
      */
-    Route::get('rekomendasi', Recomendation\Index::class)->name('recomendation')
-        ->middleware('roles:admin');
+    Route::namespace('Recomendation')->middleware('roles:admin')->prefix('rekomendasi')->name('recomendation.')->group(function () {
+        Route::get('/', Index::class)->name('index');
+        Route::get('/tambah', Create::class)->name('create');
+        Route::get('/{id}/sunting', Edit::class)->name('edit');
+    });
 
     /**
      * pengguna / user
      */
-    Route::get('pengguna', User\Index::class)->name('user')
-        ->middleware('roles:admin');
+    Route::namespace('User')->middleware('roles:admin')->prefix('pengguna')->name('user.')->group(function () {
+        Route::get('/', Index::class)->name('index');
+        Route::get('/tambah', Create::class)->name('create');
+        Route::get('/{id}/sunting', Edit::class)->name('edit');
+    });
 
     /**
      * setting
