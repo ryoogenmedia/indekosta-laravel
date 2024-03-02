@@ -36,8 +36,6 @@ Route::middleware('auth', 'verified', 'force.logout')->namespace('App\Livewire')
      */
     Route::namespace('Recomendation')->middleware('roles:admin')->prefix('rekomendasi')->name('recomendation.')->group(function () {
         Route::get('/', Index::class)->name('index');
-        Route::get('/tambah', Create::class)->name('create');
-        Route::get('/{id}/sunting', Edit::class)->name('edit');
     });
 
     /**

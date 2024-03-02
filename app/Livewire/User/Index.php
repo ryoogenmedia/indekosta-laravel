@@ -20,7 +20,6 @@ class Index extends Component
 
     public $filters = [
         'search' => '',
-        'roles' => '',
     ];
 
     public function deleteSelected()
@@ -52,10 +51,8 @@ class Index extends Component
     {
         $query = User::query()
             ->when(!$this->sorts, fn ($query) => $query->first())
-            ->when($this->filters['roles'], fn ($query, $roles) => $query->where('roles', $roles))
             ->when($this->filters['search'], function ($query, $search) {
                 $query->where('username', 'LIKE', "%$search%")
-                    ->orWhere('roles', 'LIKE', "%$search%")
                     ->orWhere('email', 'LIKE', "%$search%");
             });
 

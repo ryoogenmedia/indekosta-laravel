@@ -19,4 +19,9 @@ class Recomendation extends Model
         'email',
         'ulasan',
     ];
+
+    public function akun()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id')->withDefault();
+    }
 }
