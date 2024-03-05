@@ -21,8 +21,8 @@ Route::namespace('App\Livewire\LandingPage')->name('landing-page.')->group(funct
     Route::get('/', Index::class)->name('home');
     Route::get('/cari-kost', CariKost::class)->name('cari-kost');
     Route::get('/maps', Maps::class)->name('maps');
-    Route::get('/rekomendasi', Recomendation::class)->name('recomendation');
     Route::get('/{id}/detail-kost', DetailKost::class)->name('detail-kost');
+    Route::get('/recomendation', Recomendation::class)->name('rekomendasi');
 });
 
 

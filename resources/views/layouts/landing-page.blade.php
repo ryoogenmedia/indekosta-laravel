@@ -1,7 +1,11 @@
 @extends('layouts.base-frontend')
 
 @section('content')
-    <div class="page">
-   
-    </div>
+<div>
+    <x-frontend.header/>
+    <main>
+        {{ $slot }}
+    </main>
+    <x-frontend.footer/>
+</div>
 @endsection
