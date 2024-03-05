@@ -13,7 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect('/', '/login');
+/**
+ * landing page / halaman utama
+ */
+
+Route::namespace('App\Livewire\LandingPage')->name('landing-page.')->group(function(){
+    Route::get('/', Index::class)->name('home');
+    Route::get('/cari-kost', CariKost::class)->name('cari-kost');
+    Route::get('/maps', Maps::class)->name('maps');
+    Route::get('/rekomendasi', Recomendation::class)->name('recomendation');
+    Route::get('/{id}/detail-kost', DetailKost::class)->name('detail-kost');
+});
+
 
 Route::middleware('auth', 'verified', 'force.logout')->namespace('App\Livewire')->group(function () {
     /**

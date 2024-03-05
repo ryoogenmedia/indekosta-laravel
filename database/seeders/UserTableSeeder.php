@@ -27,7 +27,7 @@ class UserTableSeeder extends Seeder
                 'email_verified_at' => now(),
                 'roles' => 'user',
                 'password' => bcrypt('fery12345678'),
-            ]
+            ],
         ];
 
         foreach ($users as $user) {

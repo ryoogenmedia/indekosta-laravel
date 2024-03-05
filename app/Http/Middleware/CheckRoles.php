@@ -17,7 +17,11 @@ class CheckRoles
     {
         foreach ($roles as $role) {
             if ($role == auth()->user()->roles) {
-                return $next($request);
+                if(auth()->user()->roles == 'user'){
+                    return redirect()->route('landing-page.home');
+                }else{
+                    return $next($request);
+                }
             }
         }
 
