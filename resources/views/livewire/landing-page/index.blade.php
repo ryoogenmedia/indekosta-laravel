@@ -42,7 +42,7 @@
           <div class="row g-4 g-sm-5 g-xl-7 mt-0">
             
             @foreach ($this->kosts as $kost)
-              <div class="col-md-6 col-lg-4">
+              <div wire:key="row-{{ $kost->id }}" class="col-md-6 col-lg-4">
                 <article class="card bg-transparent h-100 p-0">
                   <div class="badge text-bg-dark position-absolute top-0 start-0 m-3">Diswakan</div>
 

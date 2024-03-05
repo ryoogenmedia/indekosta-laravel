@@ -107,6 +107,8 @@
             </table>
         </div>
 
-        {{ $this->rows->links() }}
+        <div class="d-flex mt-3 justify-content-end mx-3">
+            {{ $this->rows->links() }}
+        </div>
     </div>
 </div>
