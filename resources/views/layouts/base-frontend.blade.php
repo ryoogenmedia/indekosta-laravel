@@ -23,13 +23,14 @@
 
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DEXFC3C67M"></script>
-	{{-- <script>
+    
+	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
 
 		gtag('config', 'G-DEXFC3C67M');
-	</script> --}}
+	</script>
 
     <title>Document</title>
 
@@ -42,6 +43,7 @@
 <body>
     
     @yield('content')
+    @livewireScripts
 	
     <!-- Bootstrap JS -->
     <script src="{{ asset('frontend/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -54,7 +56,6 @@
     <script src="{{ asset('frontend/js/functions.js') }}"></script>
 	
     <!-- Livewire Styles -->
-    @livewireScripts
     @stack('scripts')
 </body>
 </html>

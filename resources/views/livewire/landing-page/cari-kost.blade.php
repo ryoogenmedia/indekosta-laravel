@@ -1,4 +1,4 @@
-<x-layouts.landing-page>
+<div>
     <section class="pt-8">
         <div class="container">
             <div class="inner-container text-center">
@@ -11,7 +11,7 @@
 
                 <div class="col-md-7 bg-light border rounded-2 position-relative mx-auto p-2 mt-4 mt-md-5">
                     <div class="input-group">
-                        <input type="text" wire:model.live="search" class="form-control focus-shadow-none bg-light border-0 me-1"  placeholder="Cari Kost Sekarang">
+                        <input type="text" wire:model.live='search' class="form-control focus-shadow-none bg-light border-0 me-1"  placeholder="Cari Kost Sekarang">
                         <button type="button" class="btn btn-dark rounded-2 mb-0"><i class="bi bi-search me-2"></i>Cari Kost</button>
                     </div>
                 </div>
@@ -56,4 +56,4 @@
         </div>
     
     </section>
-</x-layouts.landing-page>
+</div>
