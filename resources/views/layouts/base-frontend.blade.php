@@ -32,7 +32,7 @@
 		gtag('config', 'G-DEXFC3C67M');
 	</script>
 
-    <title>Document</title>
+    <title>Indekosta, Sistem Pencarian Kost | {{ $title }}</title>
 
     <!-- Livewire Styles -->
     @livewireStyles
