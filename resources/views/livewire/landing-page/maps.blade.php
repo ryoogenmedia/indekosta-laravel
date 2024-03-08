@@ -71,6 +71,10 @@ integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""><
 
         items[0].forEach(item => {
             var imageUrl = '{{ asset("storage") }}/' + item['image'];
+            var routes = {
+                    detailKost: "{{ route('landing-page.detail-kost', ':id') }}"
+                };
+            var route = routes.detailKost.replace(':id', item['id']);
             
             var link = `<table cellpadding="5">
                 <tr>
@@ -94,7 +98,7 @@ integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""><
                     <td><b>${item['deskripsi']}</b></td>
                 </tr>
                 <tr>
-                    <td class='text-center' colspan='3'><a class='btn btn-sm btn-primary text-white mt-2' href=''>Lihat Detail</a></td>
+                    <td class='text-center' colspan='3'><a class='btn btn-sm btn-primary text-white mt-2' href='${route}'>Lihat Detail</a></td>
                 </tr>
             </table>`;
 
