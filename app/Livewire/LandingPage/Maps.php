@@ -13,11 +13,10 @@ class Maps extends Component
     #[Layout('layouts.landing-page')]
     #[Title('Maps')]
 
-    #[Computed]
-    public function kost(){
-        return Kost::all();
+    public function mount(){
+        $this->dispatch('data-kost', Kost::all());
     }
-    
+
     public function render()
     {
         return view('livewire.landing-page.maps');

@@ -1,3 +1,18 @@
+@once
+    @section('styles')
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+            integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+
+        <link rel="stylesheet" type="text/css"
+            href="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.css">
+
+        <style>
+            #map {
+                height: 600px;
+            }
+        </style>
+    @endsection
+@endonce
 <div>
     <section class="pt-8">
         <div class="container mb-6">
@@ -27,78 +42,79 @@
     </section>
 </div>
 
-@push('script')
+@push('scripts')
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+<script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet/0.0.1-beta.5/esri-leaflet.js"></script>
+
+<script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.js"></script>
+
 <script>
     var osm = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
         subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
     });
 
-    var map = L.map('map', {
-        center: [{{  }}, {{  }}],
-        zoom: 13,
-        layers: [osm],
-        minZoom: 5,
-        maxZoom: 18,
-    });
 
-    var link = `<table cellpadding="5">
-        <tr>
-            <td class="text-center" colspan="3"><img class="rounded mb-2" style="width: 150px; height: 150px; object-fit: cover" src='' alt='image'/></td>
-        </tr>
-        <tr>
-            <td>Nama</td>
-            <td>:</td>
-            <td><b>`. {{  }}. `</b></td>
-        </tr>
-
-        <tr>
-            <td>Alamat</td>
-            <td>:</td>
-            <td><b>`. {{  }} .`</b></td>
-        </tr>
-
-        <tr>
-            <td>Deskripsi</td>
-            <td>:</td>
-            <td><b>`. {{  }} .`</b></td>
-        </tr>
-
-        <tr>
-            <td colspan='3' class='text-center'>
-            <ul class="list-inline mb-0">
-
-            <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
-
-            <li class="list-inline-item me-0"><i class="fas fa-star-half-alt text-warning"></i></li>
-
-             <li class="list-inline-item me-0 heading-color fw-normal"> `. {{  }} .`<small class="ms-2">`. {{  }} .`</small></li>
-
-            </ul>
+    Livewire.on('data-kost', items => {
+        const latitude = items[0][0]['latitude'];
+        const longitude = items[0][0]['longitude'];
         
-            </td>
-        </tr>
+        var map = L.map('map', {
+            center: [latitude, longitude],
+            zoom: 13,
+            layers: [osm],
+            minZoom: 5,
+            maxZoom: 18,
+        });
 
-        <tr>
-            <td class='text-center' colspan='3'><a class='btn btn-sm btn-primary text-white mt-2' href=''>Lihat Detail</a></td>
-        </tr>
+        items[0].forEach(item => {
+            var imageUrl = '{{ asset("storage") }}/' + item['image'];
+            
+            var link = `<table cellpadding="5">
+                <tr>
+                    <td class="text-center" colspan="3"><img class="rounded mb-2" style="width: 150px; height: 150px; object-fit: cover" src='${imageUrl}' alt='gambar-kost'/></td>
+                </tr>
+                <tr>
+                    <td>Nama</td>
+                    <td>:</td>
+                    <td><b>${item['nama_kost']}</b></td>
+                </tr>
+                <tr>
+                    <td>Alamat</td>
+                    <td>:</td>
+                    <td>
+                        <b>${item['alamat']}</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Deskripsi</td>
+                    <td>:</td>
+                    <td><b>${item['deskripsi']}</b></td>
+                </tr>
+                <tr>
+                    <td class='text-center' colspan='3'><a class='btn btn-sm btn-primary text-white mt-2' href=''>Lihat Detail</a></td>
+                </tr>
+            </table>`;
 
-    </table>
-    `
-    var nama_kost = "";
-    var datLongLat = [lat, long];
-    var marker = L.marker(datLongLat).addTo(map)
+            var datLongLat = [item['latitude'],  item['longitude']];
+            var marker = L.marker(datLongLat).addTo(map);
+            marker.bindPopup(link);
+        }); 
+
+        
+        var searchControl = L.esri.Geocoding.geosearch().addTo(map);
+        var results = L.layerGroup().addTo(map)
         .bindPopup(link);
 
-    var searchControl = L.esri.Geocoding.geosearch().addTo(map);
-    var results = L.layerGroup().addTo(map);
-
-    searchControl.on('results', function(data) {
-        results.clearLayers();
-        var firstResult = data.results[0];
-        var latlng = L.latLng(firstResult.latlng.lat, firstResult.latlng.lng);
-        marker.setLatLng(latlng);
-        map.setView(latlng, 2);
+        searchControl.on('results', function(data) {
+            results.clearLayers();
+            var firstResult = data.results[0];
+            var latlng = L.latLng(firstResult.latlng.lat, firstResult.latlng.lng);
+            marker.setLatLng(latlng);
+            map.setView(latlng, 2);
+        });
     });
 </script>
 @endpush

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,14 +24,6 @@
 
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DEXFC3C67M"></script>
-    
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-
-		gtag('config', 'G-DEXFC3C67M');
-	</script>
 
     <title>Indekosta, Sistem Pencarian Kost | {{ $title }}</title>
 
@@ -44,6 +37,8 @@
     
     @yield('content')
     @livewireScripts
+
+    </script>
 	
     <!-- Bootstrap JS -->
     <script src="{{ asset('frontend/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -57,5 +52,6 @@
 	
     <!-- Livewire Styles -->
     @stack('scripts')
+
 </body>
 </html>
