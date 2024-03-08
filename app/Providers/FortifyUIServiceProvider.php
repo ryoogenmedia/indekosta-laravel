@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
+use App\Models\Kost;
 
 class FortifyUIServiceProvider extends ServiceProvider
 {
@@ -27,7 +28,8 @@ class FortifyUIServiceProvider extends ServiceProvider
 
         // for register view
         Fortify::registerView(function () {
-            return view('auth.register-user');
+            $kost = Kost::all();
+            return view('auth.register-user', compact('kost'));
         });
     }
 }

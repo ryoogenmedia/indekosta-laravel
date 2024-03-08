@@ -48,6 +48,9 @@
                         <div class="input-floating-label form-floating mb-4">
                             <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{ old('email') }}">
                             <label for="floatingInput">Email address</label>
+                            @error('email')
+                                <div class="invalid-feedback text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="input-floating-label form-floating mb-4 position-relative">
@@ -56,6 +59,9 @@
                             <span class="position-absolute top-50 end-0 translate-middle-y p-0 me-2">
                                 <i class="fakepasswordicon fas fa-eye-slash cursor-pointer p-2"></i>
                             </span>
+                            @error('password')
+                                <div class="invalid-feedback text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="align-items-center mt-0">

@@ -12,10 +12,11 @@
                     <li class="nav-item"> <a class="nav-link" href="{{ route('landing-page.cari-kost') }}">Cari Kost</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="{{ route('landing-page.maps') }}">Maps</a> </li>
                 </ul>
+                
                 <ul class="nav align-items-center dropdown-hover ms-sm-2 my-2">
                     @if(!auth()->user())
                         <li class="nav-item d-flex gap-3">
-                                <a class="btn btn-sm btn-primary mb-0" href="register.php">Daftar</a>
+                                <a class="btn btn-sm btn-primary mb-0" href="{{ route('register') }}">Daftar</a>
                                 <a class="btn btn-sm btn-outline-primary mb-0" href="{{ route('login.user') }}">Masuk</a>
                         </li>
                     @else  
