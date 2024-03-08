@@ -25,9 +25,13 @@ class FortifyUIServiceProvider extends ServiceProvider
             return view('auth.login');
         });
 
+        Fortify::loginView(function(){
+            return view('auth.login-user');
+        });
+
         // for register view
         Fortify::registerView(function () {
-            return view('auth.register');
+            return view('auth.register-user');
         });
     }
 }
