@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,7 @@ Route::namespace('App\Livewire\LandingPage')->name('landing-page.')->group(funct
     Route::get('/recomendation', Recomendation::class)->name('rekomendasi');
 });
 
+Route::get('login-user', [LoginUserController::class, 'index'])->middleware('guest')->name('login.user');
 
 Route::middleware('auth', 'verified', 'force.logout')->namespace('App\Livewire')->group(function () {
     /**

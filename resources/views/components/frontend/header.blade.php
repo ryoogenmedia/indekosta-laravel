@@ -16,7 +16,7 @@
                     @if(!auth()->user())
                         <li class="nav-item d-flex gap-3">
                                 <a class="btn btn-sm btn-primary mb-0" href="register.php">Daftar</a>
-                                <a class="btn btn-sm btn-outline-primary mb-0" href="user_login.php">Masuk</a>
+                                <a class="btn btn-sm btn-outline-primary mb-0" href="{{ route('login.user') }}">Masuk</a>
                         </li>
                     @else  
                         <div class="d-flex gap-4">
