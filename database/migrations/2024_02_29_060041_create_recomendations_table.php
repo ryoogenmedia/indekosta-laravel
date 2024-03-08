@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->integer('rating')->nullable();
             $table->string('nama')->nullable();
-            $table->string('email')->nullable()->unique();
+            $table->string('email')->nullable();
             $table->text('ulasan')->nullable();
 
             $table->timestamps();

@@ -20,4 +20,12 @@ class Kost extends Model
         'latitude',
         'longitude',
     ];
+
+    public function category(){
+        return $this->hasMany(Category::class,'kost_id','id');
+    }
+
+    public function recomendation(){
+        return $this->hasMany(Recomendation::class, 'kost_id','id');
+    }
 }

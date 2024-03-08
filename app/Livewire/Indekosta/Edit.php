@@ -19,8 +19,8 @@ class Edit extends Component
     public $deskripsi;
     public $harga;
 
-    public $longitude = '';
-    public $latitude = '';
+    public $longitude;
+    public $latitude;
 
     public $kostId;
 
@@ -134,8 +134,14 @@ class Edit extends Component
             $this->alamat = $kost->alamat;
             $this->deskripsi = $kost->deskripsi;
             $this->harga = $kost->harga;
-            $this->latitude = $kost->latitude;
-            $this->longitude = $kost->longitude;
+
+            if($kost->latitude && $kost->longitude){
+                $this->latitude = $kost->latitude;
+                $this->longitude = $kost->longitude;
+            }else{
+                $this->longitude = 119.40353393554689;
+                $this->latitude = -5.155978984099238;
+            }
         }
 
         if ($category) {
