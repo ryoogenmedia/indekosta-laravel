@@ -36,7 +36,7 @@ class Edit extends Component
     {
         return [
             'namaKost' => ['required', 'string', 'min:2', 'max:255'],
-            'gambar' => ['nullable', 'image', 'max:2045'],
+            'gambar' => ['nullable', 'image', 'max:2048'],
             'alamat' => ['required', 'string'],
             'deskripsi' => ['required', 'string'],
             'harga' => ['required'],

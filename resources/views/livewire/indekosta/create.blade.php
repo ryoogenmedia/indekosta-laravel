@@ -27,7 +27,7 @@
 
     <x-alert />
 
-    <form class="card" wire:submit.prevent="save" autocomplete="off">
+    <form class="card" wire:submit.prevent="save" autocomplete="off" enctype="multipart/form-data">
         <div class="card-header">
             Tambah data indekosta
         </div>
@@ -42,7 +42,7 @@
 
             <div class="row">
                 <div class="col-12 col-lg-6">
-                    <x-form.input wire:model="gambar" name="gambar" label="Gambar Kost" type="file" />
+                    <x-form.input wire:model.lazy="gambar" name="gambar" label="Gambar Kost" type="file" />
                 </div>
             </div>
 
