@@ -4,7 +4,7 @@
             <div class="col-lg-auto ms-lg-auto">
                 <ul class="list-inline list-inline-dots mb-0">
                     <li class="list-inline-item">
-                        <a href="https://github.com/Ryoogen" target="_blank" class="link-secondary" rel="noopener">
+                        <a href="https://github.com/ryoogenmedia" target="_blank" class="link-secondary" rel="noopener">
                             @include('partials.svg.love')
                             Ryoogen Media
                         </a>
