@@ -8,7 +8,11 @@
             <div class="navbar-collapse collapse" id="navbarCollapse">
                 <ul class="navbar-nav navbar-nav-scroll dropdown-hover mx-auto">
                     <li class="nav-item"> <a class="nav-link" href="{{ route('landing-page.home') }}">Home</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('landing-page.rekomendasi') }}">Rekomendasi</a> </li>
+                    
+                    @auth
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('landing-page.rekomendasi') }}">Rekomendasi</a> </li>
+                    @endauth
+
                     <li class="nav-item"> <a class="nav-link" href="{{ route('landing-page.cari-kost') }}">Cari Kost</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="{{ route('landing-page.maps') }}">Maps</a> </li>
                 </ul>

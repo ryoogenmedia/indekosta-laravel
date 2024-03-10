@@ -17,9 +17,12 @@
             </div>
         </div>
         <div class="d-flex flex-row gap-3 justify-content-center">
-            <a href="rekomendasi.php?category=kerja" class="btn btn-primary">Kategori Kerja</a>
-            <a href="rekomendasi.php?category=kuliah" class="btn btn-primary">Kategori Kuliah</a>
-            <a href="rekomendasi.php?category=pasutri" class="btn btn-primary">Kategori Pasutri</a>
+            <button wire:click='categoryKerja' class="btn {{ $this->category == 'kerja' ? 'btn-primary' : 'btn-outline-primary' }}">Kategori Kerja</button>
+            <button wire:click='categoryKuliah' class="btn {{ $this->category == 'kuliah' ? 'btn-primary' : 'btn-outline-primary' }}">Kategori Kuliah</button>
+            <button wire:click='categroyPasutri' class="btn {{ $this->category == 'pasutri' ? 'btn-primary' : 'btn-outline-primary' }}">Kategori Pasutri</button> 
+            @if($this->category)
+                <a href="{{ route('landing-page.rekomendasi') }}" class="btn btn-outline-primary">Tanpa Kategori</a>
+            @endif
         </div>
     </section>
 
@@ -27,48 +30,69 @@
         <div class="container" id="output">
             <div class="row g-xl-7 justify-content-center">
                 <div class="col-lg-8">
-
+                    @foreach ($this->rows as $item)
                         <article class="card card-hover-shadow border p-3 mb-4">
                             <div class="row">
                                 <div class="col-md-4">
-                                   
+                                    @if ($item->image)
+                                        <img style="height: 230px; object-fit: cover" src="{{ asset('storage/' . $item->image) }}" class="img-fluid card-img" alt="blog-img">
+                                    @else
+                                        <img src="{{ asset('frontend/images/blog/4by4/06.jpg') }}" class="img-fluid card-img" alt="blog-img">
+                                    @endif
                                 </div>
+
                                 <div class="col-md-8">
                                     <div class="card-body d-flex flex-column h-100 ps-0 pe-3">
                                         <div><span class="badge text-bg-dark mb-3">Disewakan</span></div>
-                                        <h5 class="card-title mb-2"><a href="#">Kost Ta</a></h5>
-                                        <h6 class="card-title mb-2"><a href="#">Rp 100.000</a></h6>
-                                        <p class="small">Jl Perintis 📌</p>
+                                        <h5 class="card-title mb-2"><a href="#">{{ $item->nama_kost }}</a></h5>
+                                        <h6 class="card-title mb-2"><a href="#">{{ money_format_idr($item->harga) }}</a></h6>
+                                        <p class="small">{{ $item->alamat }} 📌</p>
 
                                         <div class="d-flex gap-2">
-                                           
+                                            @foreach ($item->category as $category)
+                                                <button class="btn btn-sm btn-primary">{{ $category->category }}</button>
+                                            @endforeach
                                         </div>
 
                                         <div class="d-flex align-items-center flex-wrap mb-2">
                                             <ul class="list-inline mb-0">
 
-                                                
+                                                @php
+                                                    $ratings = ratings($item->id);
+                                                    $bagian = explode('.', $ratings['average']);
+                                                @endphp
+                            
+                                                @for ($i = 0; $i < $ratings['floor']; $i++)
+                                                    <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+                                                @endfor
+                            
+                                                @if(isset($bagian[1]) && $bagian[1] > 0)
+                                                    <li class="list-inline-item me-0"><i class="fas fa-star-half-alt text-warning"></i></li>
+                                                @endif
+
+                                                <li class="list-inline-item me-0 heading-color fw-normal">({{ $ratings['average'] }}) <small class="ms-2">dari {{ $ratings['total'] }} user</small></li>
 
                                             </ul>
                                         </div>
 
-                                        <p class="small mb-0"></p>
+                                        <p class="small mb-0">{{ $item->deskripsi }}</p>
                                         <div class="d-sm-flex justify-content-between align-items-center mt-auto mt-2">
-                                            <a class="icon-link icon-link-hover stretched-link mt-2" href="">Lihat Kost<i class="bi bi-arrow-right"></i> </a>
+                                            <a class="icon-link icon-link-hover stretched-link mt-2" href="{{ route('landing-page.detail-kost', $item->id) }}">Lihat Kost<i class="bi bi-arrow-right"></i> </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </article>
-
+                    @endforeach
                 </div>
             </div>
         </div>
 
         <div class="row mt-7">
             <div class="col-12 mx-auto d-flex justify-content-center">
-                <a href="" id="load_more" class="btn btn-primary mb-0">Load More</a>
+                {{ $this->rows->links() }}
             </div>
         </div>
+
     </section>
 </div>

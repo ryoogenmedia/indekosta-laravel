@@ -23,7 +23,11 @@
                         <h6 class="mb-2 mb-md-4">Links</h6>
                         <ul class="nav flex-column">
                             <li class="nav-item"><a class="nav-link pt-0 active" href="{{ route('landing-page.home') }}">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('landing-page.rekomendasi') }}">Rekomendasi</a></li>
+                            
+                            @auth
+                                <li class="nav-item"><a class="nav-link" href="{{ route('landing-page.rekomendasi') }}">Rekomendasi</a></li>
+                            @endauth
+
                             <li class="nav-item"><a class="nav-link" href="{{ route('landing-page.cari-kost') }}">Cari Kost</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ route('landing-page.maps') }}">Maps</a></li>
                         </ul>

@@ -23,7 +23,7 @@ Route::namespace('App\Livewire\LandingPage')->name('landing-page.')->group(funct
     Route::get('/cari-kost', CariKost::class)->name('cari-kost');
     Route::get('/maps', Maps::class)->name('maps');
     Route::get('/{id}/detail-kost', DetailKost::class)->name('detail-kost');
-    Route::get('/recomendation', Recomendation::class)->name('rekomendasi');
+    Route::get('/recomendation', Recomendation::class)->middleware('auth','verified', 'force.logout')->name('rekomendasi');
 });
 
 Route::get('login-user', [LoginUserController::class, 'index'])->middleware('guest')->name('login.user');
