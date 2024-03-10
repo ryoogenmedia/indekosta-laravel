@@ -54,6 +54,26 @@
                         @endif
                     </div>
 
+                    <div class="d-flex align-items-center flex-wrap mb-4">
+                        <ul class="list-inline mb-0">
+        
+                            @php
+                                $ratings = ratings($this->kost->id);
+                                $bagian = explode('.', $ratings['average']);
+                            @endphp
+        
+                            @for ($i = 0; $i < $ratings['floor']; $i++)
+                                <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+                            @endfor
+        
+                            @if(isset($bagian[1]) && $bagian[1] > 0)
+                                <li class="list-inline-item me-0"><i class="fas fa-star-half-alt text-warning"></i></li>
+                            @endif
+        
+                            <li class="list-inline-item me-0 heading-color fw-normal">({{ $ratings['average'] }})</li>
+                        </ul>
+                    </div>
+
                     <p class="mb-4"></p>
                 </div>
             </div>
@@ -66,55 +86,67 @@
 
             <div class="row sticky">
                 <div class="col-lg-5 pe-lg-5 mb-5 mb-lg-0 mt-3">
-                    {{-- <div class="border rounded-2 p-4">
+                    <div class="border rounded-2 p-4">
                         <div class="row">
                             <div class="col-md-5">
-                                <h2 class="mb-0"></h2>
+                                <h2 class="mb-0">{{ $ratings['average'] }}</h2>
                                 <ul class="list-inline mb-2">
 
-                                  
+                                    @for ($i = 0; $i < $ratings['floor']; $i++)
+                                        <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+                                    @endfor
+            
+                                    @if(isset($bagian[1]) && $bagian[1] > 0)
+                                        <li class="list-inline-item me-0"><i class="fas fa-star-half-alt text-warning"></i></li>
+                                    @endif
 
                                 </ul>
-                                <p class="mb-2"></p>
+                                <p class="mb-2">Total ulasan {{ $ratings['total'] }}</p>
                             </div>
 
                             <div class="col-md-7">
                                 <div class="d-flex align-items-center">
                                     <div class="progress progress-sm bg-warning bg-opacity-15 w-100 me-3">
-                                       
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $ratings['rating5'] }}%" aria-valuenow="{{ $ratings['rating5'] }}" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
                                     </div>
                                     <span class="heading-color">5</span>
                                 </div>
 
                                 <div class="d-flex align-items-center">
                                     <div class="progress progress-sm bg-warning bg-opacity-15 w-100 me-3">
-                                       
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $ratings['rating4'] }}%" aria-valuenow="{{ $ratings['rating4'] }}" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
                                     </div>
                                     <span class="heading-color">4</span>
                                 </div>
 
                                 <div class="d-flex align-items-center">
                                     <div class="progress progress-sm bg-warning bg-opacity-15 w-100 me-3">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $ratings['rating3'] }}%" aria-valuenow="{{ $ratings['rating3'] }}" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
                                     </div>
                                     <span class="heading-color">3</span>
                                 </div>
 
                                 <div class="d-flex align-items-center">
                                     <div class="progress progress-sm bg-warning bg-opacity-15 w-100 me-3">
-                                       
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $ratings['rating2'] }}%" aria-valuenow="{{ $ratings['rating2'] }}" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
                                     </div>
                                     <span class="heading-color">2</span>
                                 </div>
 
                                 <div class="d-flex align-items-center">
                                     <div class="progress progress-sm bg-warning bg-opacity-15 w-100 me-3">
-                                     
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $ratings['rating1'] }}%" aria-valuenow="{{ $ratings['rating1'] }}" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
                                     </div>
                                     <span class="heading-color">1</span>
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
                     <div class="swiper mt-4">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
