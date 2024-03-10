@@ -10,7 +10,7 @@
         <div class="row g-4 justify-content-between">
 
             <div class="col-lg-3">
-                <a class="me-0" href="index-2.html">
+                <a class="me-0" href="{{ route('landing-page.home') }}">
                     <img width="300px" src="{{ asset('frontend/images/logo_indekost.svg') }}" alt="logo">
                 </a>
 

@@ -105,10 +105,10 @@
                 opacity: 1,
             },
             series: [{
-                name: "Keterampilan Akademik",
+                name: "Data Kost",
                 data: JSON.parse(item.getAttribute('data-kost'))
             }, {
-                name: "Keterampilan Non Akademik",
+                name: "Data Rekomendasi",
                 data: JSON.parse(item.getAttribute('data-rekomendasi'))
             }],
             grid: {
