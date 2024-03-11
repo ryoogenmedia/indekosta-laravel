@@ -79,25 +79,51 @@ class Edit extends Component
                 ]);
             }
 
-            foreach ($category as $data) {
-                if ($data->category == 'kerja' && $this->persentKerja && $this->kategoriKerja) {
-                    $data->update([
+            if(empty($category)){
+                foreach ($category as $data) {
+                    if ($data->category == 'kerja' && $this->persentKerja && $this->kategoriKerja) {
+                        $data->update([
+                            'kost_id' => $kost->id,
+                            'category' => 'kerja',
+                            'persent' => $this->persentKerja,
+                        ]);
+                    }
+    
+                    if ($data->category == 'kuliah' && $this->persentKuliah && $this->kategoriKuliah) {
+                        $data->update([
+                            'kost_id' => $kost->id,
+                            'category' => 'kuliah',
+                            'persent' => $this->persentKuliah,
+                        ]);
+                    }
+    
+                    if ($data->category == 'pasutri' && $this->persentPasutri && $this->kategoriPasutri) {
+                        $data->update([
+                            'kost_id' => $kost->id,
+                            'category' => 'pasutri',
+                            'persent' => $this->persentPasutri,
+                        ]);
+                    }
+                }
+            }else{
+                if($this->persentKerja && $this->kategoriKerja){
+                    Category::create([
                         'kost_id' => $kost->id,
                         'category' => 'kerja',
                         'persent' => $this->persentKerja,
                     ]);
                 }
 
-                if ($data->category == 'kuliah' && $this->persentKuliah && $this->kategoriKuliah) {
-                    $data->update([
+                if($this->persentKuliah && $this->kategoriKuliah){
+                   Category::create([
                         'kost_id' => $kost->id,
                         'category' => 'kuliah',
                         'persent' => $this->persentKuliah,
-                    ]);
+                   ]);
                 }
 
-                if ($data->category == 'pasutri' && $this->persentPasutri && $this->kategoriPasutri) {
-                    $data->update([
+                if($this->persentPasutri && $this->kategoriPasutri){
+                    Category::create([
                         'kost_id' => $kost->id,
                         'category' => 'pasutri',
                         'persent' => $this->persentPasutri,

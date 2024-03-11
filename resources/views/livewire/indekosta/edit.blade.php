@@ -87,7 +87,7 @@
 
             <div class="row">
                 <div class="col-2">
-                    <x-form.check value='kerja' wire:model="kategoriKerja" name="kategoriKerja"
+                    <x-form.check value='kerja' wire:model.lazy="kategoriKerja" name="kategoriKerja"
                         description="Kategori Kerja" />
                 </div>
 
