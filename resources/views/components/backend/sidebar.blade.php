@@ -6,7 +6,7 @@
         </button>
         <h1 class="navbar-brand navbar-brand-autodark p-3 d-lg-block d-none">
             <a href="{{ route('home') }}">
-                <img src="{{ asset('static/logo_indekost.svg') }}" width="100%" height="100%" alt="Tabler">
+                <img src="{{ asset('static/logo-indekost.svg') }}" width="100%" height="100%" alt="Tabler">
             </a>
         </h1>
         <div class="navbar-nav flex-row d-lg-none">

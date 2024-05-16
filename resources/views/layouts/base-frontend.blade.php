@@ -35,7 +35,7 @@
         gtag('config', 'G-DEXFC3C67M');
     </script>
 
-    <title>Indekosta, Sistem Pencarian Kost | {{ $title }}</title>
+    <title>Pencarian Kost Kecamatan Rappocini | {{ $title }}</title>
 
     <!-- Livewire Styles -->
     @livewireStyles
@@ -44,22 +44,22 @@
     @yield('styles')
 </head>
 <body>
-    
+
     @yield('content')
     @livewireScripts
 
     </script>
-	
+
     <!-- Bootstrap JS -->
     <script src="{{ asset('frontend/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-	
+
     <!--Vendors-->
     <script src="{{ asset('frontend/vendor/ityped/index.js') }}"></script>
     <script src="{{ asset('frontend/vendor/swiper/swiper-bundle.min.js') }}"></script>
-	
+
     <!-- Theme Functions -->
     <script src="{{ asset('frontend/js/functions.js') }}"></script>
-	
+
     <!-- Livewire Styles -->
     @stack('scripts')
 
