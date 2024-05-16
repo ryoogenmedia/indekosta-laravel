@@ -3,44 +3,44 @@
         <div class="position-absolute top-0 start-0 ms-n7 d-none d-xl-block">
           <img src="{{ asset('frontend/images/elements/decoration-pattern.svg') }}" alt="">
         </div>
-  
+
         @include('partials.figure.figure-one')
-  
+
         <div class="container pt-4 pt-sm-5">
           <div class="row g-xl-5">
             <div class="col-xl-7 mb-5 mb-xl-0">
               <div class="pe-xxl-4">
-                <span class="heading-color d-inline-block bg-light small rounded-3 px-3 py-2">🤩 Cari kost dengan mudah dengan indekost</span>
-  
-                <h1 class="mt-3 lh-base">Sistem Pencarian Kost Kec.Tamalanrea
+                <span class="heading-color d-inline-block bg-light small rounded-3 px-3 py-2">😍 Cari Kost Kec. Rappocini Di Sini Aja..</span>
+
+                <h1 class="mt-3 lh-base">Sistem Pencarian Kost Kec.Rappocini
                   <span class="cd-headline clip big-clip is-full-width text-primary mb-0 d-block d-xxl-inline-block">
-                    <span class="typed" data-type-text="Indekost&&Cari Kost&&Kost Murah&&Kost Kec Tamalanrea"></span>
+                    <span class="typed" data-type-text="Indekost&&Cari Kost&&Kost Murah&&Kost Kec.Rappocini"></span>
                   </span>
                 </h1>
                 <p class="mb-0 mt-4 mt-md-5">Website ini menyediakan pencarian kost untuk kecamatan tamalanrea, cocok buat kalian yang ingin mencari kost murah dan nyaman!</p>
               </div>
             </div>
-  
+
             <div class="col-md-10 col-xl-5 position-relative mx-auto mt-7 mt-xl-0">
-  
+
                 @include('partials.figure.figure-two')
-  
+
               <img src="{{ asset('frontend/images/bg/001.png') }}" class="rounded" alt="hero-img">
-  
+
             </div>
           </div>
         </div>
       </section>
-  
+
       <section class="pt-0 mt-5">
         <div class="container">
-  
+
           <div class="d-lg-flex justify-content-between align-items-center">
             <h4 class="mb-3 mb-lg-0">Kost Teratas</h4>
           </div>
-  
+
           <div class="row g-4 g-sm-5 g-xl-7 mt-0">
-            
+
             @foreach ($this->kosts as $kost)
               <div wire:key="row-{{ $kost->id }}" class="col-md-6 col-lg-4">
                 <article class="card bg-transparent h-100 p-0">
@@ -64,15 +64,15 @@
                 </article>
               </div>
             @endforeach
-  
+
           </div>
-  
+
           <div class="row mt-7">
             <div class="col-12 mx-auto d-flex justify-content-center">
               <a href="{{ route('landing-page.cari-kost') }}" class="btn btn-primary mb-0">Kost Lainnya <i class="bi fa-fw bi-arrow-right ms-2"></i></a>
             </div>
           </div>
-  
+
         </div>
       </section>
 </x-layouts.landing-page>

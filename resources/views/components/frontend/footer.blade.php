@@ -11,7 +11,7 @@
 
             <div class="col-lg-3">
                 <a class="me-0" href="{{ route('landing-page.home') }}">
-                    <img width="300px" src="{{ asset('frontend/images/logo_indekost.svg') }}" alt="logo">
+                    <img width="300px" src="{{ asset('frontend/images/logo-indekost.svg') }}" alt="logo">
                 </a>
 
                 <p class="mt-4 mb-2">Solusi pencarian kost untuk kalian yang ingin mencari penginapan kost-kosan kec. tamalanrea</p>
@@ -23,7 +23,7 @@
                         <h6 class="mb-2 mb-md-4">Links</h6>
                         <ul class="nav flex-column">
                             <li class="nav-item"><a class="nav-link pt-0 active" href="{{ route('landing-page.home') }}">Home</a></li>
-                            
+
                             @auth
                                 <li class="nav-item"><a class="nav-link" href="{{ route('landing-page.rekomendasi') }}">Rekomendasi</a></li>
                             @endauth
